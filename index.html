@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather Dashboard</title>
+  </head>
+  <body>
+
+<!-- This is the navbar at the top     -->
+<nav class="navbar navbar-expand-sm bg-danger navbar-dark">
+  <a class="navbar-brand" href="#">Alexander Korjeski</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="https://akorjeski.github.io/alexander/">About Me</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://akorjeski.github.io/alexander/contact.html">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://akorjeski.github.io/alexander/portfolio.html">Portfolio</a>
+      </li>    
+    </ul>
+  </div>  
+</nav>  
+  <!-- End of the navbar    -->
+
+<div class = "container-fluid">
+<div class="row">
+<div class="col-md-3" id="citySearcher">
+<form>
+Search for a City:<br>
+<input type="text" name="citySearcherinput">
+<button id="searchButton">Search!</button> 
+</form>
+<p> Temperature </p>
+<p> Humidity </p>
+<p> Wind Speed </p>
+<p> UV Index </p>
+<p> Temperature </p>
+<p> Humidity </p>
+<p> Wind Speed </p>
+<p> UV Index </p>
+<p> Temperature </p>
+<p> Humidity </p>
+<p> Wind Speed </p>
+<p> UV Index </p>
+
+
+
+</div>
+<div class="col-md-8" id="dailyDisplay">
+  <h1> Atlanta, GA </h1>
+  <h3> Temperature </h3>
+  <h3> Humidity </h3>
+  <h3> Wind Speed </h3>
+  <h3 id="cityUVIndexHolder"> UV Index </h3>
+
+  <div id="fiveDayForecast">
+    <h1> ALEX IS GREAT </h1>
+    <h1> ALEX IS GREAT </h1>
+    <h1> ALEX IS GREAT </h1>
+  
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="script.js"></script>
+</body>
+<!---Start of the footer -->
+<nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-bottom">Alexander Korjeski 2019
+</nav>
+</html>

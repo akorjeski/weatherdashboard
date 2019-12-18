@@ -1,0 +1,42 @@
+#citySearcher{
+    padding: 20px;
+    border-style: solid;
+    border-color: black;
+    height: 100%;
+    margin: 20px;
+}
+
+#searchButton{
+    display: inline-block;
+}
+
+#dailyDisplay{
+    padding: 20px;
+    border-style: solid;
+    border-color: black;
+    height: 100%;
+    align-content: center;
+    margin: 20px;
+
+}
+
+#recentSearchHolder{
+    padding: 20px;
+    height: 100%;
+    align-content: center;
+    margin: 20px;
+}
+
+#fiveDayForecast{
+    padding: 20px;
+    border-style: solid;
+    border-color: black;
+    height: 100%;
+    align-content: center;
+    /* margin: 20px; */
+    left: 39px;
+}
+
+#cityUVIndexHolder{
+    padding-bottom: 50px;
+}
