@@ -1,7 +1,11 @@
 var APIKey = "166a433c57516f51dfab1f7edaed8413";
 var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
 "q=Philadelphia,Pennslvania&units=imperial&appid=" + APIKey;
-    // Here we run our AJAX call to the OpenWeatherMap API
+var citiesSearched = []; ///this is for the recent searches
+
+
+    // Here we run our AJAX call to the OpenWeatherMap API. 
+    ///There is another AJAX call nested in here that uses variables from Call 1 to fuel the results for Call 2
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -27,14 +31,21 @@ var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
             url: "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + cityLat + "&lon=" + cityLon,
             method: "GET"
           }).then(function(response) {
-            $(".uvindex").html("<h3>" + "UV Index " + response.value + "</h3>");      
+            $(".uvindex").html("<h3>" + "UV Index: " + response.value + "</h3>");      
         
         });
 
-    })
+    });
 
+  
+      // This function handles events when you add a city to the recently searched array
+      $("#searchButton").on("click", function(event) {
+        event.preventDefault();
+        // This line grabs the input from the textbox
+        var city = $("#citySearcherinput").val().trim();
 
+        // Adding cties from the textbox to our array
+        citiesSearched.push(city);
+      });
 
-    /// try running this at home (11:38 am at Comcast is getting an unauthorized error but the variables are correct values)
-    //// UV index needs to be its own AJAX call. Use that actvity with multiple calls in it for this
     
