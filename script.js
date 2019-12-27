@@ -1,7 +1,5 @@
 var APIKey = "166a433c57516f51dfab1f7edaed8413";
-var alexander1 = $("#citySearcherinput").val().trim();
-var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + alexander1 +
-"&units=imperial&appid=" + APIKey;
+
 var citiesSearched = []; ///this is for the recent searches
 
 
@@ -9,6 +7,9 @@ var citiesSearched = []; ///this is for the recent searches
   
       // This function handles events when you add a city to the recently searched array
       $("#searchButton").on("click", function(event) {
+        var alexander1 = $("#citySearcherinput").val().trim();
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + alexander1 +
+                        "&units=imperial&appid=" + APIKey;
          
         event.preventDefault();
         $("#buttonHolder").empty();
