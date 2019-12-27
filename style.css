@@ -40,3 +40,14 @@
 #cityUVIndexHolder{
     padding-bottom: 50px;
 }
+
+.city-btn{
+    display:block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  
+    
+}
+hr{
+    background-color: red;
+}
