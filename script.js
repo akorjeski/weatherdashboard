@@ -27,7 +27,7 @@ var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
             url: "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + cityLat + "&lon=" + cityLon,
             method: "GET"
           }).then(function(response) {
-            $(".uvindex").html("<h3>" + "Temperature (F) " + response.value + "</h3>");      
+            $(".uvindex").html("<h3>" + "UV Index" + response.value + "</h3>");      
         
         });
 
