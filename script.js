@@ -5,7 +5,7 @@ var citiesSearched = []; ///this is for the recent searches
 
     
   
-      // This function handles events when you add a city to the recently searched array
+      // This function handles the search button [Adds items to array and updates the page with that city]
       $("#searchButton").on("click", function(event) {
         var alexander1 = $("#citySearcherinput").val().trim();
         var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + alexander1 +
@@ -73,4 +73,34 @@ var citiesSearched = []; ///this is for the recent searches
         
       });
 
+    ///This function controls the buttons that get added to the screen for each search
+    function displayRecentSearch() {
+      var alexander1 = $(this).attr("data-name");
+
+      var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + alexander1 +
+      "&units=imperial&appid=" + APIKey;
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+            // Transfer content to HTML
+            $(".city").html("<h1>" + response.name + "</h1>");
+            $(".temperature").html("<h3>" + "Temperature: " + response.main.temp + "</h3>");
+            $(".windspeed").html("<h3>" + "Wind Speed: " + response.wind.speed + "</h3>");
+        
+        /// establish variables for lat and lon for the UV index
+        var cityLat = response.coord.lat;
+        var cityLon = response.coord.lon;
     
+            $.ajax({
+                url: "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + cityLat + "&lon=" + cityLon,
+                method: "GET"
+              }).then(function(response) {
+                $(".uvindex").html("<h3>" + "UV Index: " + response.value + "</h3>");      
+            
+            });
+          })
+        }
+
+      // Adding a click event listener to all buttons with a class of "city-btn"
+      $(document).on("click", ".city-btn", displayRecentSearch);
