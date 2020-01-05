@@ -68,7 +68,6 @@ var citiesSearched = []; ///this is for the recent searches
     });
 
 //call the fivedayforecast function here 
-console.log("Alex did this work?");
 fivedayforecast();
 
 
@@ -121,7 +120,8 @@ $.ajax({
       })
     // We store all of the retrieved data inside of an object called "response"
     .then(function(response) {
-console.log(response.list[4].main.temp)
+console.log(response.list[4].main.temp);
+console.log("Alex did this work?");
 
 
     })}
