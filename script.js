@@ -66,14 +66,16 @@ var citiesSearched = []; ///this is for the recent searches
  
 
     });
-///write the code here for the 5 day forecast
+
+//call the fivedayforecast function here 
 console.log("Alex did this work?");
+fivedayforecast();
 
 
         
       });
 
-    ///This function controls the buttons that get added to the screen for each search
+    ///This function changes the data when you click a button that get added to the screen for each search.
     function displayRecentSearch() {
       var alexander1 = $(this).attr("data-name");
 
@@ -104,3 +106,22 @@ console.log("Alex did this work?");
 
       // Adding a click event listener to all buttons with a class of "city-btn"
       $(document).on("click", ".city-btn", displayRecentSearch);
+
+
+
+///write the FUNCTION here for the 5 day forecast under this
+function fivedayforecast(){
+var alexander1 = $("#citySearcherinput").val().trim();
+var queryURL = "//api.openweathermap.org/data/2.5/forecast?q=" + alexander1 +
+                        "&units=imperial&appid=" + APIKey;
+
+$.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+    // We store all of the retrieved data inside of an object called "response"
+    .then(function(response) {
+console.log(response.list[4].main.temp)
+
+
+    })}
