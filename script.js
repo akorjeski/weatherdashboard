@@ -120,7 +120,7 @@ $.ajax({
       })
     // We store all of the retrieved data inside of an object called "response"
     .then(function(response) {
-console.log(response.list[4].main.temp);
+console.log(response.list[4]);
 console.log("Alex did this work?");
 
 
