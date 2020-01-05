@@ -68,7 +68,24 @@ var citiesSearched = []; ///this is for the recent searches
     });
 
 //call the fivedayforecast function here 
-fivedayforecast();
+function fivedayforecast(){
+  var alexander1 = $("#citySearcherinput").val().trim();
+  var queryURL = "//api.openweathermap.org/data/2.5/forecast?q=" + alexander1 +
+                          "&units=imperial&appid=" + APIKey;
+  
+  $.ajax({
+          url: queryURL,
+          method: "GET"
+        })
+      // We store all of the retrieved data inside of an object called "response"
+      .then(function(response) {
+  console.log(response);
+  console.log("Alex did this work?");
+  
+  
+      })}
+
+  fivedayforecast();
 
 
         
@@ -109,19 +126,3 @@ fivedayforecast();
 
 
 ///write the FUNCTION here for the 5 day forecast under this
-function fivedayforecast(){
-var alexander1 = $("#citySearcherinput").val().trim();
-var queryURL = "//api.openweathermap.org/data/2.5/forecast?q=" + alexander1 +
-                        "&units=imperial&appid=" + APIKey;
-
-$.ajax({
-        url: queryURL,
-        method: "GET"
-      })
-    // We store all of the retrieved data inside of an object called "response"
-    .then(function(response) {
-console.log(response);
-console.log("Alex did this work?");
-
-
-    })}
