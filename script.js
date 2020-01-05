@@ -8,7 +8,7 @@ var citiesSearched = []; ///this is for the recent searches
       // This function handles the search button [Adds items to array and updates the page with that city]
       $("#searchButton").on("click", function(event) {
         var alexander1 = $("#citySearcherinput").val().trim();
-        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + alexander1 +
+        var queryURL = "//api.openweathermap.org/data/2.5/weather?q=" + alexander1 +
                         "&units=imperial&appid=" + APIKey;
          
         event.preventDefault();
@@ -57,7 +57,7 @@ var citiesSearched = []; ///this is for the recent searches
     var cityLon = response.coord.lon;
 
         $.ajax({
-            url: "https//api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + cityLat + "&lon=" + cityLon,
+            url: "//api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + cityLat + "&lon=" + cityLon,
             method: "GET"
           }).then(function(response) {
             $(".uvindex").html("<h3>" + "UV Index: " + response.value + "</h3>");      
@@ -77,7 +77,7 @@ var citiesSearched = []; ///this is for the recent searches
     function displayRecentSearch() {
       var alexander1 = $(this).attr("data-name");
 
-      var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + alexander1 +
+      var queryURL = "//api.openweathermap.org/data/2.5/weather?q=" + alexander1 +
       "&units=imperial&appid=" + APIKey;
       $.ajax({
         url: queryURL,
@@ -93,7 +93,7 @@ var citiesSearched = []; ///this is for the recent searches
         var cityLon = response.coord.lon;
     
             $.ajax({
-                url: "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + cityLat + "&lon=" + cityLon,
+                url: "//api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + cityLat + "&lon=" + cityLon,
                 method: "GET"
               }).then(function(response) {
                 $(".uvindex").html("<h3>" + "UV Index: " + response.value + "</h3>");      
