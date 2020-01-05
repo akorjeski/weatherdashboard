@@ -8,7 +8,7 @@ var citiesSearched = []; ///this is for the recent searches
       // This function handles the search button [Adds items to array and updates the page with that city]
       $("#searchButton").on("click", function(event) {
         var alexander1 = $("#citySearcherinput").val().trim();
-        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + alexander1 +
+        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + alexander1 +
                         "&units=imperial&appid=" + APIKey;
          
         event.preventDefault();
@@ -30,7 +30,7 @@ var citiesSearched = []; ///this is for the recent searches
         // Providing the initial button text
           a.text(citiesSearched[i]);
         // Adding the button to the buttons-view div
-          $("#buttonHolder").append(a);   
+          $("#buttonHolder").prepend(a);   
         }
 
         // Here we run our AJAX call to the OpenWeatherMap API. 
