@@ -63,10 +63,11 @@ var citiesSearched = []; ///this is for the recent searches
             $(".uvindex").html("<h3>" + "UV Index: " + response.value + "</h3>");      
         
         });
+ 
 
     });
 ///write the code here for the 5 day forecast
-
+console.log("Alex did this work?");
 
 
         
