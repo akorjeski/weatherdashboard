@@ -80,7 +80,7 @@ function fivedayforecast(){
       // We store all of the retrieved data inside of an object called "response"
       .then(function(response) {
   console.log(queryURL);
-  console.log(response);
+  console.log(response.list[4]);
   
   
       })}
