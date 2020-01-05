@@ -51,3 +51,7 @@
 hr{
     background-color: red;
 }
+
+.card{
+    display:inline-block;
+}

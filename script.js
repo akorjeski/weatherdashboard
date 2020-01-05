@@ -65,8 +65,7 @@ var citiesSearched = []; ///this is for the recent searches
         });
 
     });
-
-
+///write the code here for the 5 day forecast
 
 
 
