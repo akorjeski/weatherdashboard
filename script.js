@@ -8,7 +8,7 @@ var citiesSearched = []; ///this is for the recent searches
       // This function handles the search button [Adds items to array and updates the page with that city]
       $("#searchButton").on("click", function(event) {
         var alexander1 = $("#citySearcherinput").val().trim();
-        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + alexander1 +
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + alexander1 +
                         "&units=imperial&appid=" + APIKey;
          
         event.preventDefault();
