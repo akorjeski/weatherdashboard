@@ -17,91 +17,6 @@ currentDate4.setDate(currentDate4.getDate() + 4);
 var currentDate5 = new Date();
 currentDate5.setDate(currentDate5.getDate() + 5);
 
-var alexander5555 = "<img src='' id='todaysImg'> </img>"
-
-
-    
-  
-      // This function handles the search button [Adds items to array and updates the page with that city]
-      $("#searchButton").on("click", function(event) {
-        var alexander1 = $("#citySearcherinput").val().trim();
-        var queryURL = "https://cors-anywhere.herokuapp.com///api.openweathermap.org/data/2.5/weather?q=" + alexander1 +
-                        "&units=imperial&appid=" + APIKey;
-         
-        event.preventDefault();
-        $("#buttonHolder").empty();
-        // This line grabs the input from the textbox
-        var city = $("#citySearcherinput").val().trim();
-
-        // Adding cties from the textbox to our array
-        citiesSearched.push(city);
-
-        for (var i = 0; i < citiesSearched.length; i++){
-        // Then dynamicaly generating buttons for each movie in the array
-        // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
-          var a = $("<button>");
-        // Adding a class of movie-btn to our button
-          a.addClass("city-btn");
-        // Adding a data-attribute
-          a.attr("data-name", citiesSearched[i]);
-        // Providing the initial button text
-          a.text(citiesSearched[i]);
-        // Adding the button to the buttons-view div
-          $("#buttonHolder").prepend(a);   
-        }
-
-        // Here we run our AJAX call to the OpenWeatherMap API. 
-    ///There is another AJAX call nested in here that uses variables from Call 1 to fuel the results for Call 2
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-      })
-    // We store all of the retrieved data inside of an object called "response"
-    .then(function(response) {
-    // Log the queryURL
-        console.log(queryURL);
-        
-    // Log the resulting object
-        console.log(response);
-    
-    // Transfer content to HTML
-        $(".city").html("<h1>" + response.name + "</h1>" + alexander5555);
-        $(".temperature").html("<h3>" + "Temperature: " + response.main.temp + "</h3>");
-        $(".windspeed").html("<h3>" + "Wind Speed: " + response.wind.speed + "</h3>");
-        
-        if (response.weather.main = "Clear"){
-          $("#todaysImg").attr("src", "http://openweathermap.org/img/wn/01d@2x.png")}
-          else if (response.weather.main = "Clouds"){
-          $("#todaysImg").attr("src", "http://openweathermap.org/img/wn/03d@2x.png")
-          }
-          else if (response.weather.main = "Drizzle"){
-          $("#todaysImg").attr("src", "http://openweathermap.org/img/wn/09d@2x.png")
-          }
-          else if (response.weather.main = "Rain"){
-          $("#todaysImg").attr("src", "http://openweathermap.org/img/wn/10d@2x.png")
-          }  
-          else if (response.weather.main = "Snow"){
-          $("#todaysImg").attr("src", "http://openweathermap.org/img/wn/13d@2x.png")
-          }    
-          else if (response.weather.main = "Thunderstorm"){
-          $("#todaysImg").attr("src", "http://openweathermap.org/img/wn/11d@2x.png")
-          }
-        
-    
-    /// establish variables for lat and lon for the UV index
-    var cityLat = response.coord.lat;
-    var cityLon = response.coord.lon;
-
-        $.ajax({
-            url: "https://cors-anywhere.herokuapp.com///api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + cityLat + "&lon=" + cityLon,
-            method: "GET"
-          }).then(function(response) {
-            $(".uvindex").html("<h3>" + "UV Index: " + response.value + "</h3>");      
-        
-        });
- 
-
-    });
 
 //call the fivedayforecast function here 
 function fivedayforecast(){
@@ -139,21 +54,21 @@ $("#dayFiveHumidity").html("<p>" + "Humidity: " + + response.list[4].humidity + 
 
 ///Below are the IF  statements that handle what image loads into the 5 Day Forecast
 //Day One
-if (response.list[0].weather.main = "Clear"){
-$("#dayOneImg").attr("src", "http://openweathermap.org/img/wn/01d@2x.png")}
-else if (response.list[0].weather.main = "Clouds"){
-$("#dayOneImg").attr("src", "http://openweathermap.org/img/wn/03d@2x.png")
+if (response.list[0].weather.main === "Clear"){
+$("#dayOneImg").attr("src", "clear.png")}
+else if (response.list[0].weather.main === "Clouds"){
+$("#dayOneImg").attr("src", "clouds.png")
 }
-else if (response.list[0].weather.main = "Drizzle"){
-$("#dayOneImg").attr("src", "http://openweathermap.org/img/wn/09d@2x.png")
+else if (response.list[0].weather.main === "Drizzle"){
+$("#dayOneImg").attr("src", "drizzle.png")
 }
-else if (response.list[0].weather.main = "Rain"){
+else if (response.list[0].weather.main === "Rain"){
 $("#dayOneImg").attr("src", "http://openweathermap.org/img/wn/10d@2x.png")
 }  
-else if (response.list[0].weather.main = "Snow"){
+else if (response.list[0].weather.main === "Snow"){
 $("#dayOneImg").attr("src", "http://openweathermap.org/img/wn/13d@2x.png")
 }    
-else if (response.list[0].weather.main = "Thunderstorm"){
+else if (response.list[0].weather.main === "Thunderstorm"){
 $("#dayOneImg").attr("src", "http://openweathermap.org/img/wn/11d@2x.png")
 }  
 ///Day Two
@@ -230,6 +145,94 @@ if (response.list[4].weather.main = "Clear"){
   }         
 })}
 
+    
+  
+      // This function handles the search button [Adds items to array and updates the page with that city]
+      $("#searchButton").on("click", function(event) {
+        var alexander1 = $("#citySearcherinput").val().trim();
+        var queryURL = "https://cors-anywhere.herokuapp.com///api.openweathermap.org/data/2.5/weather?q=" + alexander1 +
+                        "&units=imperial&appid=" + APIKey;
+         
+        event.preventDefault();
+        $("#buttonHolder").empty();
+        // This line grabs the input from the textbox
+        var city = $("#citySearcherinput").val().trim();
+
+        // Adding cties from the textbox to our array
+        citiesSearched.push(city);
+
+        for (var i = 0; i < citiesSearched.length; i++){
+        // Then dynamicaly generating buttons for each movie in the array
+        // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
+          var a = $("<button>");
+        // Adding a class of movie-btn to our button
+          a.addClass("city-btn");
+        // Adding a data-attribute
+          a.attr("data-name", citiesSearched[i]);
+        // Providing the initial button text
+          a.text(citiesSearched[i]);
+        // Adding the button to the buttons-view div
+          $("#buttonHolder").prepend(a);   
+        }
+
+        // Here we run our AJAX call to the OpenWeatherMap API. 
+    ///There is another AJAX call nested in here that uses variables from Call 1 to fuel the results for Call 2
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+    // We store all of the retrieved data inside of an object called "response"
+    .then(function(response) {
+    // Log the queryURL
+        console.log(queryURL);
+        
+    // Log the resulting object
+        console.log(response);
+    
+    // Transfer content to HTML
+        $(".city").html("<h1>" + response.name + "</h1>");
+        $(".temperature").html("<h3>" + "Temperature: " + response.main.temp + "</h3>");
+        $(".windspeed").html("<h3>" + "Wind Speed: " + response.wind.speed + "</h3>");
+        var cocoa = JSON.stringify(response.weather[0].main);
+        console.log(cocoa);
+        console.log(typeof(cocoa));
+        
+        if (cocoa === "Clear"){
+          $("#todaysImg").html("<img src='clear.png'>")}
+          else if (cocoa = "Clouds"){
+          $("#todaysImg").html("<img src='clouds.png'>")
+          }
+          else if (cocoa == "Drizzle"){
+          $("#todaysImg").html("<img src='drizzle.png'>")
+          }
+          else if (cocoa =="Rain"){
+          $("#todaysImg").html("<img src='rain.png'>")
+          }  
+          else if (cocoa == "Snow"){
+          $("#todaysImg").html("<img src='snow.png'>")
+          }    
+          else if (cocoa == "Thunderstorm"){
+          $("#todaysImg").html("<img src='thunderstorm.png'>")
+          }
+        
+    
+    /// establish variables for lat and lon for the UV index
+    var cityLat = response.coord.lat;
+    var cityLon = response.coord.lon;
+
+        $.ajax({
+            url: "https://cors-anywhere.herokuapp.com///api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + cityLat + "&lon=" + cityLon,
+            method: "GET"
+          }).then(function(response) {
+            $(".uvindex").html("<h3>" + "UV Index: " + response.value + "</h3>");      
+        
+        });
+ 
+
+    });
+
+
+
   fivedayforecast();
 
 
@@ -240,7 +243,7 @@ if (response.list[4].weather.main = "Clear"){
     function displayRecentSearch() {
       var alexander1 = $(this).attr("data-name");
 
-      var queryURL = "//api.openweathermap.org/data/2.5/weather?q=" + alexander1 +
+      var queryURL = "https://cors-anywhere.herokuapp.com///api.openweathermap.org/data/2.5/weather?q=" + alexander1 +
       "&units=imperial&appid=" + APIKey;
       $.ajax({
         url: queryURL,
@@ -250,18 +253,21 @@ if (response.list[4].weather.main = "Clear"){
             $(".city").html("<h1>" + response.name + "</h1>");
             $(".temperature").html("<h3>" + "Temperature: " + response.main.temp + "</h3>");
             $(".windspeed").html("<h3>" + "Wind Speed: " + response.wind.speed + "</h3>");
+            
         
         /// establish variables for lat and lon for the UV index
         var cityLat = response.coord.lat;
         var cityLon = response.coord.lon;
     
             $.ajax({
-                url: "..//api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + cityLat + "&lon=" + cityLon,
+                url: "https://cors-anywhere.herokuapp.com///api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + cityLat + "&lon=" + cityLon,
                 method: "GET"
               }).then(function(response) {
-                $(".uvindex").html("<h3>" + "UV Index: " + response.value + "</h3>");      
+                $(".uvindex").html("<h3>" + "UV Index: " + response.value + "</h3>");
+                    
             
             });
+          
           })
         }
 
