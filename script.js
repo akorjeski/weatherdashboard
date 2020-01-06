@@ -71,7 +71,7 @@ var citiesSearched = []; ///this is for the recent searches
 function fivedayforecast(){
   var alexander1 = $("#citySearcherinput").val().trim();
   var queryURL = "//api.openweathermap.org/data/2.5/forecast/daily?q=" + alexander1 +
-                          "&mode=xml&units=imperial&cnt=5&appid=" + APIKey;
+                          "&mode=json&units=imperial&cnt=5&appid=" + APIKey;
   
   $.ajax({
           url: queryURL,
@@ -82,8 +82,8 @@ function fivedayforecast(){
   console.log(queryURL);
 
   // $("#dayOneDate").html("<p>" + response.list[4].dt_txt + "</p>");
-  $("#dayOneTemp").html("<p>" + response.list[0].temp.max + "</p>");
-  $("#dayOneHumidity").html("<p>" + response.list[0].humidity + "</p>")
+  $("#dayOneTemp").html("<p>" + response.list[1].temp.max + "</p>");
+  $("#dayOneHumidity").html("<p>" + response.list[1].humidity + "</p>")
 
 
   
