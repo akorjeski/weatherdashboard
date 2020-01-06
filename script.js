@@ -81,9 +81,9 @@ function fivedayforecast(){
       .then(function(response) {
   console.log(queryURL);
 
-  $("#dayOneDate").html("<h3>" + response.list[4].dt_txt + "</h3>");
-  $("#dayOneTemp").html("<h3>" + response.list[4].main.temp + "</h3>");
-  $("#dayOneHumidity").html("<h3>" + response.list[4].main.humidit + "</h3>")
+  $("#dayOneDate").html("<p>" + response.list[4].dt_txt + "</p>");
+  $("#dayOneTemp").html("<p>" + response.list[4].main.temp + "</p>");
+  $("#dayOneHumidity").html("<p>" + response.list[4].main.humidity + "</p>")
 
 
   
