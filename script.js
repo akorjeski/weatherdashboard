@@ -2,6 +2,8 @@ var APIKey = "166a433c57516f51dfab1f7edaed8413";
 
 var citiesSearched = []; ///this is for the recent searches
 
+var currentDate0 = new Date();
+
 var currentDate1 = new Date();
 currentDate1.setDate(currentDate1.getDate() + 1);
 
@@ -54,21 +56,21 @@ $("#dayFiveHumidity").html("<p>" + "Humidity: " + + response.list[4].humidity + 
 
 ///Below are the IF  statements that handle what image loads into the 5 Day Forecast
 //Day One
-if (response.list[0].weather.main === "Clear"){
+if (response.list[0].weather.main = "Clear"){
 $("#dayOneImg").attr("src", "clear.png")}
-else if (response.list[0].weather.main === "Clouds"){
+else if (response.list[0].weather.main = "Clouds"){
 $("#dayOneImg").attr("src", "clouds.png")
 }
-else if (response.list[0].weather.main === "Drizzle"){
+else if (response.list[0].weather.main = "Drizzle"){
 $("#dayOneImg").attr("src", "drizzle.png")
 }
-else if (response.list[0].weather.main === "Rain"){
+else if (response.list[0].weather.main = "Rain"){
 $("#dayOneImg").attr("src", "http://openweathermap.org/img/wn/10d@2x.png")
 }  
-else if (response.list[0].weather.main === "Snow"){
+else if (response.list[0].weather.main = "Snow"){
 $("#dayOneImg").attr("src", "http://openweathermap.org/img/wn/13d@2x.png")
 }    
-else if (response.list[0].weather.main === "Thunderstorm"){
+else if (response.list[0].weather.main = "Thunderstorm"){
 $("#dayOneImg").attr("src", "http://openweathermap.org/img/wn/11d@2x.png")
 }  
 ///Day Two
@@ -160,6 +162,8 @@ if (response.list[4].weather.main = "Clear"){
 
         // Adding cties from the textbox to our array
         citiesSearched.push(city);
+        localStorage.setItem('recentCities', JSON.stringify(citiesSearched));
+        
 
         for (var i = 0; i < citiesSearched.length; i++){
         // Then dynamicaly generating buttons for each movie in the array
@@ -193,6 +197,7 @@ if (response.list[4].weather.main = "Clear"){
         $(".city").html("<h1>" + response.name + "</h1>");
         $(".temperature").html("<h3>" + "Temperature: " + response.main.temp + "</h3>");
         $(".windspeed").html("<h3>" + "Wind Speed: " + response.wind.speed + "</h3>");
+        $(".todaysDate").html("<p>" + currentDate0 + "</p>")
         var cocoa = JSON.stringify(response.weather[0].main);
         console.log(cocoa);
         console.log(typeof(cocoa));
