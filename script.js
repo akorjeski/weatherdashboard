@@ -81,6 +81,8 @@ function fivedayforecast(){
       .then(function(response) {
   console.log(queryURL);
   console.log(response.list[4].main.temp);
+  console.log(response.list[4].main.humidity);
+  
   
   
       })}
