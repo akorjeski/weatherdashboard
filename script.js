@@ -17,6 +17,8 @@ currentDate4.setDate(currentDate4.getDate() + 4);
 var currentDate5 = new Date();
 currentDate5.setDate(currentDate5.getDate() + 5);
 
+var alexander5555 = "<img src='' id='todaysImg'> </img>"
+
 
     
   
@@ -63,9 +65,28 @@ currentDate5.setDate(currentDate5.getDate() + 5);
         console.log(response);
     
     // Transfer content to HTML
-        $(".city").html("<h1>" + response.name + "</h1>");
+        $(".city").html("<h1>" + response.name + "</h1>" + alexander5555);
         $(".temperature").html("<h3>" + "Temperature: " + response.main.temp + "</h3>");
         $(".windspeed").html("<h3>" + "Wind Speed: " + response.wind.speed + "</h3>");
+        
+        if (response.weather.main = "Clear"){
+          $("#todaysImg").attr("src", "http://openweathermap.org/img/wn/01d@2x.png")}
+          else if (response.weather.main = "Clouds"){
+          $("#todaysImg").attr("src", "http://openweathermap.org/img/wn/03d@2x.png")
+          }
+          else if (response.weather.main = "Drizzle"){
+          $("#todaysImg").attr("src", "http://openweathermap.org/img/wn/09d@2x.png")
+          }
+          else if (response.weather.main = "Rain"){
+          $("#todaysImg").attr("src", "http://openweathermap.org/img/wn/10d@2x.png")
+          }  
+          else if (response.weather.main = "Snow"){
+          $("#todaysImg").attr("src", "http://openweathermap.org/img/wn/13d@2x.png")
+          }    
+          else if (response.weather.main = "Thunderstorm"){
+          $("#todaysImg").attr("src", "http://openweathermap.org/img/wn/11d@2x.png")
+          }
+        
     
     /// establish variables for lat and lon for the UV index
     var cityLat = response.coord.lat;
