@@ -23,7 +23,7 @@ currentDate5.setDate(currentDate5.getDate() + 5);
 //call the fivedayforecast function here 
 function fivedayforecast(){
   var alexander1 = $("#citySearcherinput").val().trim();
-  var queryURL = "https://cors-anywhere.herokuapp.com///api.openweathermap.org/data/2.5/forecast/daily?q=" + alexander1 +
+  var queryURL = "https://api.openweathermap.org/data/2.5/forecast/daily?q=" + alexander1 +
                           "&mode=json&units=imperial&cnt=5&appid=" + APIKey;
   
   $.ajax({
@@ -56,6 +56,7 @@ $("#dayFiveHumidity").html("<p>" + "Humidity: " + + response.list[4].humidity + 
 
 ///Below are the IF  statements that handle what image loads into the 5 Day Forecast
 //Day One
+
 if (response.list[0].weather.main = "Clear"){
 $("#dayOneImg").attr("src", "clear.png")}
 else if (response.list[0].weather.main = "Clouds"){
@@ -152,7 +153,7 @@ if (response.list[4].weather.main = "Clear"){
       // This function handles the search button [Adds items to array and updates the page with that city]
       $("#searchButton").on("click", function(event) {
         var alexander1 = $("#citySearcherinput").val().trim();
-        var queryURL = "https://cors-anywhere.herokuapp.com///api.openweathermap.org/data/2.5/weather?q=" + alexander1 +
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + alexander1 +
                         "&units=imperial&appid=" + APIKey;
          
         event.preventDefault();
@@ -203,8 +204,8 @@ if (response.list[4].weather.main = "Clear"){
         console.log(typeof(cocoa));
         
         if (cocoa === "Clear"){
-          $("#todaysImg").html("<img src='clear.png'>")}
-          else if (cocoa = "Clouds"){
+          $("#todaysImg").html("<img src='clear.png'>")
+        } else if (cocoa == "Clouds"){
           $("#todaysImg").html("<img src='clouds.png'>")
           }
           else if (cocoa == "Drizzle"){
@@ -226,7 +227,7 @@ if (response.list[4].weather.main = "Clear"){
     var cityLon = response.coord.lon;
 
         $.ajax({
-            url: "https://cors-anywhere.herokuapp.com///api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + cityLat + "&lon=" + cityLon,
+            url: "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + cityLat + "&lon=" + cityLon,
             method: "GET"
           }).then(function(response) {
             $(".uvindex").html("<h3>" + "UV Index: " + response.value + "</h3>");      
@@ -248,7 +249,7 @@ if (response.list[4].weather.main = "Clear"){
     function displayRecentSearch() {
       var alexander1 = $(this).attr("data-name");
 
-      var queryURL = "https://cors-anywhere.herokuapp.com///api.openweathermap.org/data/2.5/weather?q=" + alexander1 +
+      var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + alexander1 +
       "&units=imperial&appid=" + APIKey;
       $.ajax({
         url: queryURL,
@@ -265,7 +266,7 @@ if (response.list[4].weather.main = "Clear"){
         var cityLon = response.coord.lon;
     
             $.ajax({
-                url: "https://cors-anywhere.herokuapp.com///api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + cityLat + "&lon=" + cityLon,
+                url: "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + cityLat + "&lon=" + cityLon,
                 method: "GET"
               }).then(function(response) {
                 $(".uvindex").html("<h3>" + "UV Index: " + response.value + "</h3>");
